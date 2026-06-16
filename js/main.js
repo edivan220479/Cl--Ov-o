@@ -29,4 +29,14 @@ document.addEventListener('DOMContentLoaded', () => {
             track.style.transform = `translateX(-${getSlideWidth() * index}px)`;
         }
     });
+    
+    // Ativa a música de fundo assim que o usuário clicar em qualquer lugar do site
+document.addEventListener('click', () => {
+    const musica = document.getElementById('bg-music');
+    if (musica) {
+        musica.play().catch(error => {
+            console.log("Autoplay bloqueado aguardando maior interação do usuário.");
+        });
+    }
+}, { once: true }); // O '{ once: true }' garante que esse evento só rode no primeiro clique
 });
